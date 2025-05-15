@@ -26,7 +26,7 @@ class LinkedList {
 
         let temp = this.head;
         this.head = newNode;
-        this.head.newNode = temp;
+        this.head.nextNode = temp;
     }
 
     size(){
@@ -37,6 +37,25 @@ class LinkedList {
             current = current.nextNode;
         }
         return count;
+    }
+
+    head(){
+        if(this.head === null){
+            return null;
+        }
+        else{
+            return this.head;
+        }
+    }
+
+    tail(){
+        if(this.head === null){
+            return null;
+        }
+        else{
+            let num = this.size();
+            return this.at(num - 1);
+        }
     }
 }
 
