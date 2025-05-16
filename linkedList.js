@@ -118,6 +118,32 @@ class LinkedList {
         finalString += "null";
         return finalString;
     }
+
+    insertAt(value, index){
+        const length = this.size();
+        if(index === 1) 
+            this.prepend(value);
+        else{
+            const prevNode = this.at(index-1);
+            const nextNode = this.at(index);
+            prevNode.next = new Node(value, nextNode);
+        }
+        return;
+    }
+
+    removeAt(index) {
+        const length = this.size();
+        if(index === length) this.pop();
+        else if(index === 1){
+            this.head = this.at(2);
+        }
+        else{
+            const prevNode = this.at(index-1);
+            const nextNode = this.at(index+1);
+            prevNode.next = nextNode;
+        }
+        return;
+    }
 }
 
 class Node{
@@ -126,4 +152,6 @@ class Node{
         this.nextNode = nextNode;
     }
 }
+
+export {LinkedList}
 
